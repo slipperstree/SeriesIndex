@@ -2,7 +2,7 @@
 Typecho 开源博客的插件。可以在文章末尾自动添加一个【系列文章】列表，方便访客查看跟当前文章属于同系列的其他文章。
 
 ## 例子
-http://blog.mangolovecarrot.net/2016/01/24/raspi-study1001/
+http://blog.mangolovecarrot.net/2015/05/17/raspi-study06/
 
 ## 安装
 - 下载后得到文件夹【SeriesIndex】
