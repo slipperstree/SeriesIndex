@@ -5,7 +5,7 @@ Typecho 开源博客的插件。可以在文章末尾自动添加一个【系列
 http://blog.mangolovecarrot.net/2015/05/17/raspi-study06/
 
 ## 安装
-- 下载后得到文件夹【SeriesIndex】
+- 下载后得到文件夹【SeriesIndex】（如果你得到的是【SeriesIndex-master】那么请去掉后面的【-master】）
 - 将这个文件夹上传到Typecho的usr/plugins/ 下
 - 博客后台插件管理页面，启用SeriesIndex插件即可。
 
