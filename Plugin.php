@@ -8,15 +8,6 @@
  * @link https://github.com/slipperstree
  */
 
- // 使用方法：
- // 在文章某处地方加上<!-- series-index -->，程序会把这个注释替换成目录树
-
- // 样式：
- // .index-menu			整个目录
- // .index-menu-list	列表 ul
- // .index-menu-item	每个目录项 li
- // .index-menu-link	目录项连接 a
-
 class SeriesIndex_Plugin implements Typecho_Plugin_Interface {
 	
 	/**
@@ -170,7 +161,6 @@ class SeriesIndex_Plugin implements Typecho_Plugin_Interface {
 	}
 	
 	// 获取系列文章列表
-	// TODO
 	protected function getSeriesList($column, $offset, $type, $status = NULL, $authorId = 0, $pageSize = 20)
     {
         $select = $this->db->select(array('COUNT(table.contents.cid)' => 'num'))->from('table.contents')
