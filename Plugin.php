@@ -122,7 +122,7 @@ class SeriesIndex_Plugin implements Typecho_Plugin_Interface {
 
 				if ($seriesContent['slug'] == $slug) {
 					// 当前文章不加link
-					$seriesIndexHtml .= "<li><b>" . $seriesContent['title'] . "</b>【这是当前文章】</li>";
+					$seriesIndexHtml .= "<li><b>" . $seriesContent['title'] . "</b>【当前文章】</li>";
 				} else {
 					$seriesIndexHtml .= "<li><a href='" . $url . "'  title='" . $seriesContent['title'] . "'>" . $seriesContent['title'] . "</a></li>";
 				}
