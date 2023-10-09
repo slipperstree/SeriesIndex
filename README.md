@@ -16,7 +16,7 @@ http://blog.mangolovecarrot.net/2015/05/17/raspi-study06/
 - 按日期归档 /archives/{year}/{month}/{day}/{slug}.html
 - 按分类归档 /{category}/{slug}.html
 - 个性化定义 /{year}/{month}/{day}/{slug}/
-而默认的下面这一种是不可以的（以后会考虑增加支持）
+而默认的下面这一种是不可以的，因为并不包含slug
 - 默认风格 /archives/{cid}/
 
 2. 写系列文章的时候，需要你手动指定slug，格式为：系列前缀 + 数字编号。
