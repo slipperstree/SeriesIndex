@@ -9,14 +9,16 @@ jobs:
       - run: echo "🍏🍏🍏 ${{ secrets.DEPLOY_PORT }} + 1"
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
-      - name: Upload Files
-        id: upload
-        uses: https://github.com/Creepios/sftp-action@v1.0.3
+      - name: sftp upload
+        uses: https://github.com/Dylan700/sftp-upload-action@latest
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          port: ${{ secrets.DEPLOY_PORT }}
+          server: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_PASS }}
-          localPath: './*.php'
-          remotePath: './'
+          passphrase: ${{ secrets.DEPLOY_PASS }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          uploads: |
+            ./*.php => ./
+          ignore: |
+            !index.html
+            !.htaccess
       - run: echo "🍏 This job's status is ${{ job.status }}."
