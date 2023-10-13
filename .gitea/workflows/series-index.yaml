@@ -17,5 +17,5 @@ jobs:
           user: ${{ secrets.DEPLOY_USER }}
           pass: ${{ secrets.DEPLOY_PASS }}
           scp: |
-            './*.php' => /
+            *.php => /
       - run: echo "🍏 This job's status is ${{ job.status }}."
