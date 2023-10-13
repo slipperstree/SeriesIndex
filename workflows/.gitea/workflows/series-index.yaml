@@ -1,0 +1,22 @@
+name: Deploy SeriesIndex Plugin
+run-name: ${{ gitea.actor }} is Deploying SeriesIndex Plugin 🚀
+on: [push]
+
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: pi4
+    steps:
+      - name: Check out repository code
+        uses: http://git.mangolovecarrot.net/actions/checkout@v3
+      - name: deploy file
+        uses: http://git.mangolovecarrot.net/actions/SFTP-Deploy-Action@v1.2.4
+        with:
+            username: 'series_index_release'
+            password: 'series_index_release'
+            server: 'file.mangolovecarrot.net'
+            port: 2022
+            # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+            local_path: './*.php'
+            remote_path: '/'
+            sftpArgs: '-o ConnectTimeout=5'
+      - run: echo "🍏 This job's status is ${{ job.status }}."
