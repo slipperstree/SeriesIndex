@@ -9,13 +9,14 @@ jobs:
       - run: echo "🍏🍏🍏 ${{ secrets.DEPLOY_PORT }} + 1"
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
-      - name: scp pipelines
-        uses: http://git.mangolovecarrot.net/actions/ssh-scp-ssh-pipelines@latest
+      - name: Upload Files
+        id: upload
+        uses: https://github.com/Creepios/sftp-action@v1.0.3
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           port: ${{ secrets.DEPLOY_PORT }}
-          user: ${{ secrets.DEPLOY_USER }}
-          pass: ${{ secrets.DEPLOY_PASS }}
-          scp: |
-            *.php => /
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASS }}
+          localPath: './*.php'
+          remotePath: './
       - run: echo "🍏 This job's status is ${{ job.status }}."
