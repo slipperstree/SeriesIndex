@@ -15,8 +15,7 @@ jobs:
             password: 'series_index_release'
             server: 'file.mangolovecarrot.net'
             port: 2022
-            # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
             local_path: './*.php'
             remote_path: '/'
-            sftpArgs: '-o ConnectTimeout=5'
+            sftpArgs: '-o ConnectTimeout=5 -T'
       - run: echo "🍏 This job's status is ${{ job.status }}."
