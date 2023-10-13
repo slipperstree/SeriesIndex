@@ -18,5 +18,5 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_PASS }}
           localPath: './*.php'
-          remotePath: './
+          remotePath: './'
       - run: echo "🍏 This job's status is ${{ job.status }}."
