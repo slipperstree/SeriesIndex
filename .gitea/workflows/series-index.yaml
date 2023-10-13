@@ -6,6 +6,7 @@ jobs:
   Explore-Gitea-Actions:
     runs-on: pi4
     steps:
+      - run: echo "🍏🍏🍏 DEPLOY_HOST=${{ secrets.DEPLOY_HOST }}"
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
       - name: scp pipelines
