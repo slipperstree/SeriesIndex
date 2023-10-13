@@ -9,16 +9,16 @@ jobs:
       - run: echo "🍏🍏🍏 ${{ secrets.DEPLOY_PORT }} + 1"
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
-      - name: sftp upload
-        uses: https://github.com/Dylan700/sftp-upload-action@latest
+      - name: scp ssh pipelines
+        uses: http://git.mangolovecarrot.net/actions/ssh-scp-ssh-pipelines@latest
         with:
-          server: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          passphrase: ${{ secrets.DEPLOY_PASS }}
+          host: ${{ secrets.DEPLOY_HOST }}
           port: ${{ secrets.DEPLOY_PORT }}
-          uploads: |
-            ./*.php => ./
-          ignore: |
-            !index.html
-            !.htaccess
+          user: ${{ secrets.DEPLOY_USER }}
+          pass: ${{ secrets.DEPLOY_PASS }}
+          scp: |
+            ./*.* => ${{ secrets.DEPLOY_DEST }}
+          last_ssh: |
+            cd ${{ secrets.DEPLOY_DEST }}
+            ls -la
       - run: echo "🍏 This job's status is ${{ job.status }}."
