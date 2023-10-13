@@ -8,14 +8,13 @@ jobs:
     steps:
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
-      - name: deploy file
-        uses: http://git.mangolovecarrot.net/actions/SFTP-Deploy-Action@v1.2.4
+      - name: scp pipelines
+        uses: http://git.mangolovecarrot.net/actions/ssh-scp-ssh-pipelines@latest
         with:
-            username: 'series_index_release'
-            password: 'series_index_release'
-            server: 'file.mangolovecarrot.net'
-            port: 2022
-            local_path: './*.php'
-            remote_path: '/'
-            sftpArgs: '-o ConnectTimeout=5 -T'
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          user: ${{ secrets.DEPLOY_USER }}
+          pass: ${{ secrets.DEPLOY_PASS }}
+          scp: |
+            './*.php' => /.
       - run: echo "🍏 This job's status is ${{ job.status }}."
