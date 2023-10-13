@@ -3,10 +3,9 @@ run-name: ${{ gitea.actor }} is Deploying SeriesIndex Plugin 🚀
 on: [push]
 
 jobs:
-  Explore-Gitea-Actions:
+  DEPLOY-TO-BLOG:
     runs-on: pi4
     steps:
-      - run: echo "🍏🍏🍏 ${{ secrets.DEPLOY_PORT }} + 1"
       - name: Check out repository code
         uses: http://git.mangolovecarrot.net/actions/checkout@v3
       - name: scp ssh pipelines
